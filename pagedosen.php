@@ -98,7 +98,6 @@
         </tr>
       </tbody>
     </table>
-
     <a href="formbooking.php">BOOKING</a>
         </tbody>
     </table>
