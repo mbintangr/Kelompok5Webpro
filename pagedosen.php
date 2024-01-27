@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page Dosen</title>
+<<<<<<< HEAD
   <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
   <style>
     body {
@@ -99,6 +100,8 @@
     </table>
 
     <a href="formbooking.php">BOOKING</a>
+        </tbody>
+    </table>
   </main>
 </body>
 </html>
