@@ -57,6 +57,7 @@
   <main>
     <table class="min-w-full">
     <p1><b>JADWAL</b></p1>
+
       <thead>
         <tr>
           <th>Nama Dosen</th>
