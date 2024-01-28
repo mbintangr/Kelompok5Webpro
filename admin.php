@@ -27,14 +27,15 @@ $user = $statement->fetch(PDO::FETCH_ASSOC);
 </head>
 <body>
 
-<nav class="bg-white border-gray-200 dark:bg-gray-900 relative">
+<nav class="bg-green-300 border-gray-200 dark:bg-gray-900 relative">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="index.php" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="img/pnjlogo.png" class="h-8" />
             <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">POLITEKNIK NEGERI JAKARTA</span>
         </a>
         <div class="flex items-center md:order-2 space-x-1 md:space-x-0 rtl:space-x-reverse">
-        <button type="button" data-dropdown-toggle="language-dropdown-menu" onclick="toggleDropdown()" class="inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white dropdown-toggle">
+        <button type="button" data-dropdown-toggle="language-dropdown-menu" onclick="toggleDropdown()" 
+            class="inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white dropdown-toggle">
         <div class="w-12 h-12">
         <img src="img/user.png"/>
         </div>
@@ -50,7 +51,7 @@ $user = $statement->fetch(PDO::FETCH_ASSOC);
     <div class="flex justify-center items-center pb-[100px]">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 p-4">
             <?php foreach ($results as $result): ?>
-                <div class="bg-gray-100 p-4 rounded-md shadow-md">
+                <div class="bg-green-300 p-4 rounded-md shadow-md">
                     <h2 class="font-bold text-lg mb-4 pl-14 ;"><?php echo $result['nama_ruangan']; ?></h2>
                     <p class="text-sm text-gray-600">Jenis Ruangan: <?php echo $result['jenis_ruangan']; ?></p>
                     <p class="text-sm text-gray-600">Kapasitas: <?php echo $result['kapasitas']; ?></p>
