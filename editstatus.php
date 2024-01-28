@@ -64,9 +64,9 @@
       <div>
         <h2 class='my-3 font-bold'>Change Status:</h2>
         <div class="w-full flex justify-between">
-          <a href="processeditstatus.php?newStatus=Accepted&id_peminjaman=<?= $id ?>"><button class='mx-1 px-5 py-1 bg-green-500 font-bold text-white rounded-full hover:bg-green-600'>Accept</button></a>
-          <a href="processeditstatus.php?newStatus=Pending&id_peminjaman=<?= $id ?>"><button class='mx-1 px-5 py-1 bg-yellow-500 font-bold text-white rounded-full hover:bg-yellow-600'>Pending</button></a>
-          <a href="processeditstatus.php?newStatus=Rejected&id_peminjaman=<?= $id ?>"><button class='mx-1 px-5 py-1 bg-red-500 font-bold text-white rounded-full hover:bg-red-600'>Reject</button></a>
+          <a href="processeditstatus.php?newStatus=Accepted&ruangan=<?= $nama_ruangan ?>&id_peminjaman=<?= $id ?>"><button class='mx-1 px-5 py-1 bg-green-500 font-bold text-white rounded-full hover:bg-green-600'>Accept</button></a>
+          <a href="processeditstatus.php?newStatus=Pending&ruangan=<?= $nama_ruangan ?>&id_peminjaman=<?= $id ?>"><button class='mx-1 px-5 py-1 bg-yellow-500 font-bold text-white rounded-full hover:bg-yellow-600'>Pending</button></a>
+          <a href="processeditstatus.php?newStatus=Rejected&ruangan=<?= $nama_ruangan ?>&id_peminjaman=<?= $id ?>"><button class='mx-1 px-5 py-1 bg-red-500 font-bold text-white rounded-full hover:bg-red-600'>Reject</button></a>
         </div>
       </div>
 

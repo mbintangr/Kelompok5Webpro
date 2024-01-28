@@ -82,13 +82,16 @@
               echo "<td>" . $value['hari'] . "</td>";
               if ($value['status'] == 'Accepted') {
                 echo "<td><button class='px-5 py-1 bg-green-500 font-bold text-white rounded-full'>" . $value['status'] . "</button>";
-                echo "<a href='editstatus.php?waktu=" . $value['waktu'] . "&hari=" . $value['hari'] . "&ruangan=" . $nama_ruangan . "'><button class='ml-2 px-5 py-1 bg-black font-bold text-white rounded-full'>Edit</button></td>";
+                echo "<a href='editstatus.php?waktu=" . $value['waktu'] . "&hari=" . $value['hari'] . "&ruangan=" . $nama_ruangan . "'><button class='ml-2 px-5 py-1 bg-black font-bold text-white rounded-full'>Edit</button>";
+                echo "<a href='hapusdata.php?waktu=" . $value['waktu'] . "&hari=" . $value['hari'] . "&ruangan=" . $nama_ruangan . "'><button class='ml-2 px-5 py-1 bg-red-700 font-bold text-white rounded-full'>X</button></td>";
               } else if ($value['status'] == 'Pending') {
                 echo "<td><button class='px-5 py-1 bg-yellow-500 font-bold text-white rounded-full'>" . $value['status'] . "</button>";
-                echo "<a href='editstatus.php?waktu=" . $value['waktu'] . "&hari=" . $value['hari'] . "&ruangan=" . $nama_ruangan . "'><button class='ml-2 px-5 py-1 bg-black font-bold text-white rounded-full'>Edit</button></td>";
+                echo "<a href='editstatus.php?waktu=" . $value['waktu'] . "&hari=" . $value['hari'] . "&ruangan=" . $nama_ruangan . "'><button class='ml-2 px-5 py-1 bg-black font-bold text-white rounded-full'>Edit</button>";
+                echo "<a href='hapusdata.php?waktu=" . $value['waktu'] . "&hari=" . $value['hari'] . "&ruangan=" . $nama_ruangan . "'><button class='ml-2 px-5 py-1 bg-red-700 font-bold text-white rounded-full'>X</button></td>";
               } else {
                 echo "<td><button class='px-5 py-1 bg-red-500 font-bold text-white rounded-full'>" . $value['status'] . "</button>";
-                echo "<a href='editstatus.php?waktu=" . $value['waktu'] . "&hari=" . $value['hari'] . "&ruangan=" . $nama_ruangan . "'><button class='ml-2 px-5 py-1 bg-black font-bold text-white rounded-full'>Edit</button></td>";
+                echo "<a href='editstatus.php?waktu=" . $value['waktu'] . "&hari=" . $value['hari'] . "&ruangan=" . $nama_ruangan . "'><button class='ml-2 px-5 py-1 bg-black font-bold text-white rounded-full'>Edit</button>";
+                echo "<a href='hapusdata.php?waktu=" . $value['waktu'] . "&hari=" . $value['hari'] . "&ruangan=" . $nama_ruangan . "'><button class='ml-2 px-5 py-1 bg-red-700 font-bold text-white rounded-full'>X</button></td>";
               }
             echo "</tr>";
           }
