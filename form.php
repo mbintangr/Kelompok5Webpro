@@ -74,14 +74,14 @@
                     <label for="kelas" class="block text-sm font-medium text-gray-600">Kelas:</label>
                     <select name="kelas" id="kelas" class="mt-1 p-2 w-full border rounded-md">
                         <option value="null"></option>
-                        <option value="ti1a">TI-1A</option>
-                        <option value="ti1b">TI-1B</option>
-                        <option value="ti3a">TI-3A</option>
-                        <option value="ti3b">TI-3B</option>
-                        <option value="ti5a">TI-5A</option>
-                        <option value="ti5b">TI-5B</option>
-                        <option value="ti7a">TI-7A</option>
-                        <option value="ti7b">TI-7B</option>
+                        <option value="TI-1A">TI-1A</option>
+                        <option value="TI-1B">TI-1B</option>
+                        <option value="TI-3A">TI-3A</option>
+                        <option value="TI-3B">TI-3B</option>
+                        <option value="TI-5A">TI-5A</option>
+                        <option value="TI-5B">TI-5B</option>
+                        <option value="TI-7A">TI-7A</option>
+                        <option value="TI-7B">TI-7B</option>
                     </select>
                 </div>
 
