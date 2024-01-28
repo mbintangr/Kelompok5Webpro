@@ -25,6 +25,7 @@
                     <h1 class="text-white font-bold text-3xl mr-4">Nama Akun</h1>
                     <img class="object-scale-down h-20 w-20 rounded-full" src="img/fotopp.png" alt="Logo">
                 </div>
+                
                 <button class="bg-red-500 text-white font-bold text-xl p-2 m-4 h-10 w-30 rounded-lg items-center">Logout</button>
             </div>
 
