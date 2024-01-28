@@ -9,15 +9,22 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body class="bg-gray-200">
+<body class="">
+    <?php 
+        include_once('koneksi.php');
+
+    ?>
     <div class="container mx-auto mt-8">
         <div class="form-container">
-            <h2 class="text-2xl font-bold mb-6 text-center">Form Pengisian Jadwal</h2>
-            <form id="dataForm" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+            <div class="mb-6 text-center">
+                <h2 class="text-2xl font-extrabold">Form Pengisian Jadwal</h2>
+                <h3><?= $_GET['ruangan'] ?></h3>
+            </div>
+            <form id="dataForm" action="processtambahdata.php?ruangan=<?= $_GET['ruangan'] ?>" method="post">
 
                 <div class="mb-4">
                     <label for="nama" class="block text-sm font-medium text-gray-600">Nama Dosen:</label>
-                    <select name="nama" id="nama" class="mt-1 p-2 w-full border rounded-md">
+                    <select name="nama_dosen" id="nama" class="mt-1 p-2 w-full border rounded-md">
                     <option value="null"></option>
                     <?php
                         include_once('koneksi.php');
@@ -36,7 +43,7 @@
 
                 <div class="mb-4">
                     <label for="matkul" class="block text-sm font-medium text-gray-600">Mata Kuliah:</label>
-                    <select name="nama" id="nama" class="mt-1 p-2 w-full border rounded-md">
+                    <select name="mata_kuliah" id="nama" class="mt-1 p-2 w-full border rounded-md">
                     <option value="null"></option>
                     <?php
                         include_once('koneksi.php');
@@ -68,14 +75,14 @@
                     <label for="kelas" class="block text-sm font-medium text-gray-600">Kelas:</label>
                     <select name="kelas" id="kelas" class="mt-1 p-2 w-full border rounded-md">
                         <option value="null"></option>
-                        <option value="ti1a">TI-1A</option>
-                        <option value="ti1b">TI-1B</option>
-                        <option value="ti3a">TI-3A</option>
-                        <option value="ti3b">TI-3B</option>
-                        <option value="ti5a">TI-5A</option>
-                        <option value="ti5b">TI-5B</option>
-                        <option value="ti7a">TI-7A</option>
-                        <option value="ti7b">TI-7B</option>
+                        <option value="TI-1A">TI-1A</option>
+                        <option value="TI-1B">TI-1B</option>
+                        <option value="TI-3A">TI-3A</option>
+                        <option value="TI-3B">TI-3B</option>
+                        <option value="TI-5A">TI-5A</option>
+                        <option value="TI-5B">TI-5B</option>
+                        <option value="TI-7A">TI-7A</option>
+                        <option value="TI-7B">TI-7B</option>
                     </select>
                 </div>
 
@@ -95,7 +102,7 @@
                 </div>
 
                 <div class="mt-6">
-                    <button type="submit" class="bg-blue-500 text-white px-5 py-1 rounded-full">Submit</button>
+                    <button type="submit" class="bg-green-500 text-white px-5 py-1 rounded-full font-bold">Submit</button>
                 </div>
 
             </form>
