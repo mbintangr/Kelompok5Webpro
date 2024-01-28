@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page Admin</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
   <style>
     body {
@@ -38,20 +39,22 @@
   <header>
     <?php 
       $nama_ruangan = strtoupper($_GET['ruangan']);
-      $sql = "SELECT kapasitas FROM ruangan WHERE nama_ruangan = '$nama_ruangan'";
+      $sql = "SELECT kapasitas, jenis_ruangan FROM ruangan WHERE nama_ruangan = '$nama_ruangan'";
       $stmt = $conn->prepare($sql);
       $stmt->execute();
 
       $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
       $kapasitas_kelas = $result[0]['kapasitas'];
+      $jenis_ruangan = $result[0]['jenis_ruangan'];
     ?>
     <h2 class='text-2xl font-bold'><b>RUANG <?php echo $nama_ruangan;?></b></h2>
+    <p>Jenis Ruangan: <?php echo $jenis_ruangan ;?></p>
     <p>Kapasitas: <?php echo $kapasitas_kelas . ' orang';?></p>
   </header>
 
   <main>
-    <table class="min-w-full">
-    <h1><b>JADWAL</b></h1>
+  <table class="min-w-full mb-5">
+  <h1 class="mb-2"><b>JADWAL</b></h1>
       <thead>
         <tr>
           <th>Nama Dosen</th>
@@ -80,13 +83,16 @@
               echo "<td>" . $value['hari'] . "</td>";
               if ($value['status'] == 'Accepted') {
                 echo "<td><button class='px-5 py-1 bg-green-500 font-bold text-white rounded-full'>" . $value['status'] . "</button>";
-                echo "<a href='editstatus.php?waktu=" . $value['waktu'] . "&hari=" . $value['hari'] . "&ruangan=" . $nama_ruangan . "'><button class='ml-2 px-5 py-1 bg-black font-bold text-white rounded-full'>Edit</button></td>";
+                echo "<a href='editstatus.php?waktu=" . $value['waktu'] . "&hari=" . $value['hari'] . "&ruangan=" . $nama_ruangan . "'><button class='ml-2 px-5 py-1 bg-black font-bold text-white rounded-full'>Edit</button>";
+                echo "<a href='hapusdata.php?waktu=" . $value['waktu'] . "&hari=" . $value['hari'] . "&ruangan=" . $nama_ruangan . "'><button class='ml-2 px-5 py-1 bg-red-700 font-bold text-white rounded-full'>X</button></td>";
               } else if ($value['status'] == 'Pending') {
                 echo "<td><button class='px-5 py-1 bg-yellow-500 font-bold text-white rounded-full'>" . $value['status'] . "</button>";
-                echo "<a href='editstatus.php?waktu=" . $value['waktu'] . "&hari=" . $value['hari'] . "&ruangan=" . $nama_ruangan . "'><button class='ml-2 px-5 py-1 bg-black font-bold text-white rounded-full'>Edit</button></td>";
+                echo "<a href='editstatus.php?waktu=" . $value['waktu'] . "&hari=" . $value['hari'] . "&ruangan=" . $nama_ruangan . "'><button class='ml-2 px-5 py-1 bg-black font-bold text-white rounded-full'>Edit</button>";
+                echo "<a href='hapusdata.php?waktu=" . $value['waktu'] . "&hari=" . $value['hari'] . "&ruangan=" . $nama_ruangan . "'><button class='ml-2 px-5 py-1 bg-red-700 font-bold text-white rounded-full'>X</button></td>";
               } else {
                 echo "<td><button class='px-5 py-1 bg-red-500 font-bold text-white rounded-full'>" . $value['status'] . "</button>";
-                echo "<a href='editstatus.php?waktu=" . $value['waktu'] . "&hari=" . $value['hari'] . "&ruangan=" . $nama_ruangan . "'><button class='ml-2 px-5 py-1 bg-black font-bold text-white rounded-full'>Edit</button></td>";
+                echo "<a href='editstatus.php?waktu=" . $value['waktu'] . "&hari=" . $value['hari'] . "&ruangan=" . $nama_ruangan . "'><button class='ml-2 px-5 py-1 bg-black font-bold text-white rounded-full'>Edit</button>";
+                echo "<a href='hapusdata.php?waktu=" . $value['waktu'] . "&hari=" . $value['hari'] . "&ruangan=" . $nama_ruangan . "'><button class='ml-2 px-5 py-1 bg-red-700 font-bold text-white rounded-full'>X</button></td>";
               }
             echo "</tr>";
           }

@@ -27,7 +27,7 @@ $user = $statement->fetch(PDO::FETCH_ASSOC);
 </head>
 <body>
 
-<nav class="bg-white border-gray-200 dark:bg-gray-900 relative">
+<nav class="bg-green-300 border-gray-200 dark:bg-gray-900 relative">
     <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         <a href="index.php" class="flex items-center space-x-3 rtl:space-x-reverse">
             <img src="img/pnjlogo.png" class="h-8" />
@@ -49,10 +49,10 @@ $user = $statement->fetch(PDO::FETCH_ASSOC);
     <div class="flex justify-center items-center pb-[100px]">
         <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-10 p-4">
             <?php foreach ($results as $result): ?>
-                <div class="bg-gray-100 p-4 rounded-md shadow-md">
+                <div class="bg-green-300 p-4 rounded-md shadow-md">
                     <h2 class="font-bold text-lg mb-4 pl-14 ;"><?php echo $result['nama_ruangan']; ?></h2>
-                    <p class="text-sm text-gray-600">Jenis Ruangan: <?php echo $result['jenis_ruangan']; ?></p>
-                    <p class="text-sm text-gray-600">Kapasitas: <?php echo $result['kapasitas']; ?></p>
+                    <p class="text-sm text-gray-800">Jenis Ruangan: <?php echo $result['jenis_ruangan']; ?></p>
+                    <p class="text-sm text-gray-800">Kapasitas: <?php echo $result['kapasitas']; ?></p>
                     <button class="bg-blue-600 text-white font-bold px-4 py-1 rounded-md my-2 hover:bg-blue-700 transition duration-300 mt-6">
                         <a href="pagedosen.php?ruangan=<?php echo $result['nama_ruangan']; ?>" target="_self">More</a>
                     </button>

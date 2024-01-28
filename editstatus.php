@@ -48,7 +48,7 @@
     <div class='flex-col justify-center items-center fixed bg-white rounded-3xl p-8 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
       
       <div>
-        <h1 class='text-center font-bold text-xl'>Details:</h1>
+        <h1 class='text-center font-bold text-xl mb-3'>Details:</h1>
         <ul class="">
           <li>Nama Ruangan: <?= $nama_ruangan ?></li></li>
           <li>Tanggal: <?= $hari ?></li></li>
@@ -64,9 +64,9 @@
       <div>
         <h2 class='my-3 font-bold'>Change Status:</h2>
         <div class="w-full flex justify-between">
-          <a href="processeditstatus.php?newStatus=Accepted&id_peminjaman=<?= $id ?>"><button class='mx-1 px-5 py-1 bg-green-500 font-bold text-white rounded-full hover:bg-green-600'>Accept</button></a>
-          <a href="processeditstatus.php?newStatus=Pending&id_peminjaman=<?= $id ?>"><button class='mx-1 px-5 py-1 bg-yellow-500 font-bold text-white rounded-full hover:bg-yellow-600'>Pending</button></a>
-          <a href="processeditstatus.php?newStatus=Rejected&id_peminjaman=<?= $id ?>"><button class='mx-1 px-5 py-1 bg-red-500 font-bold text-white rounded-full hover:bg-red-600'>Reject</button></a>
+          <a href="processeditstatus.php?newStatus=Accepted&ruangan=<?= $nama_ruangan ?>&id_peminjaman=<?= $id ?>"><button class='mx-1 px-5 py-1 bg-green-500 font-bold text-white rounded-full hover:bg-green-600'>Accept</button></a>
+          <a href="processeditstatus.php?newStatus=Pending&ruangan=<?= $nama_ruangan ?>&id_peminjaman=<?= $id ?>"><button class='mx-1 px-5 py-1 bg-yellow-500 font-bold text-white rounded-full hover:bg-yellow-600'>Pending</button></a>
+          <a href="processeditstatus.php?newStatus=Rejected&ruangan=<?= $nama_ruangan ?>&id_peminjaman=<?= $id ?>"><button class='mx-1 px-5 py-1 bg-red-500 font-bold text-white rounded-full hover:bg-red-600'>Reject</button></a>
         </div>
       </div>
 
