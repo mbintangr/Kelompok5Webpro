@@ -17,10 +17,7 @@ $user = $statement->fetch(PDO::FETCH_ASSOC);
   <link rel="stylesheet" type="text/css" href="css/style.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
   <style>
-    body {
-      margin-left: 2cm;
-      margin-right: 2cm;
-    }
+
 
     header {
       margin-bottom: 1cm;
