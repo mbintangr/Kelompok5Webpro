@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page Dosen</title>
+  <link rel="stylesheet" type="text/css" href="css/style.css">
   <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
   <style>
     body {
@@ -91,7 +92,7 @@
         ?>
       </tbody>
     </table>
-    <a href="form.php?ruangan=<?php echo $nama_ruangan; ?>" ><button class="font-bold px-5 py-1 rounded-full bg-green-500 text-white">Tambah</button></a>
+    <a href="form.php?ruangan=<?php echo $nama_ruangan; ?>" ><button class="font-bold px-5 py-1 rounded-full bg-green-600 hover:bg-green-700 transition duration-300 mt-6 text-white">Tambah</button></a>
   </main>
 </body>
 </html>

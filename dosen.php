@@ -51,8 +51,8 @@ $user = $statement->fetch(PDO::FETCH_ASSOC);
             <?php foreach ($results as $result): ?>
                 <div class="bg-green-300 p-4 rounded-md shadow-md">
                     <h2 class="font-bold text-lg mb-4 pl-14 ;"><?php echo $result['nama_ruangan']; ?></h2>
-                    <p class="text-sm text-gray-600">Jenis Ruangan: <?php echo $result['jenis_ruangan']; ?></p>
-                    <p class="text-sm text-gray-600">Kapasitas: <?php echo $result['kapasitas']; ?></p>
+                    <p class="text-sm text-gray-800">Jenis Ruangan: <?php echo $result['jenis_ruangan']; ?></p>
+                    <p class="text-sm text-gray-800">Kapasitas: <?php echo $result['kapasitas']; ?></p>
                     <button class="bg-blue-600 text-white font-bold px-4 py-1 rounded-md my-2 hover:bg-blue-700 transition duration-300 mt-6">
                         <a href="pagedosen.php?ruangan=<?php echo $result['nama_ruangan']; ?>" target="_self">More</a>
                     </button>
