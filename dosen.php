@@ -66,7 +66,7 @@ $user = $statement->fetch(PDO::FETCH_ASSOC);
                     <p class="text-sm text-gray-600">Jenis Ruangan: <?php echo $result['jenis_ruangan']; ?></p>
                     <p class="text-sm text-gray-600">Kapasitas: <?php echo $result['kapasitas']; ?></p>
                     <button class="bg-blue-600 text-white font-bold px-4 py-1 rounded-md my-2 hover:bg-blue-700 transition duration-300 mt-6">
-                        <a href="#" target="_blank">More</a>
+                        <a href="pagedosen.php?ruangan=<?php echo $result['nama_ruangan']; ?>" target="_self">More</a>
                     </button>
                 </div>
             <?php endforeach; ?>
