@@ -30,17 +30,6 @@
       background-color: #f2f2f2;
     }
 
-    a {
-      display: inline-block ;
-      padding: 10px;
-      width: 120px;
-      background-color: #1B8AF2;
-      color: white;
-      text-decoration: none;
-      text-align: center;
-      border-radius: 10px;
-    }
-
   </style>
 </head>
 
@@ -75,7 +64,7 @@
         </tr>
       </thead>
       <tbody>
-        <?php 
+        <?php           
           $sql = "SELECT u.nama, mk.nama_mata_kuliah, mk.semester, pr.kelas, pr.waktu, pr.hari, pr.status FROM peminjaman_ruangan pr JOIN user u ON (pr.id_user = u.id) JOIN mata_kuliah mk ON (mk.id_user = u.id) WHERE id_ruangan = (SELECT id_ruangan FROM ruangan WHERE nama_ruangan = '$nama_ruangan')";
           $stmt = $conn->prepare($sql);
           $stmt->execute();
@@ -90,11 +79,14 @@
               echo "<td>" . $value['waktu'] . "</td>";
               echo "<td>" . $value['hari'] . "</td>";
               if ($value['status'] == 'Accepted') {
-                echo "<td class='text-green-500 font-bold'>" . $value['status'] . "</td>";
+                echo "<td><button class='px-5 py-1 bg-green-500 font-bold text-white rounded-full'>" . $value['status'] . "</button>";
+                echo "<a href='editstatus.php?waktu=" . $value['waktu'] . "&hari=" . $value['hari'] . "&ruangan=" . $nama_ruangan . "'><button class='ml-2 px-5 py-1 bg-black font-bold text-white rounded-full'>Edit</button></td>";
               } else if ($value['status'] == 'Pending') {
-                echo "<td class='text-yellow-500 font-bold'>" . $value['status'] . "</td>";
+                echo "<td><button class='px-5 py-1 bg-yellow-500 font-bold text-white rounded-full'>" . $value['status'] . "</button>";
+                echo "<a href='editstatus.php?waktu=" . $value['waktu'] . "&hari=" . $value['hari'] . "&ruangan=" . $nama_ruangan . "'><button class='ml-2 px-5 py-1 bg-black font-bold text-white rounded-full'>Edit</button></td>";
               } else {
-                echo "<td class='text-red-500 font-bold'>" . $value['status'] . "</td>";
+                echo "<td><button class='px-5 py-1 bg-red-500 font-bold text-white rounded-full'>" . $value['status'] . "</button>";
+                echo "<a href='editstatus.php?waktu=" . $value['waktu'] . "&hari=" . $value['hari'] . "&ruangan=" . $nama_ruangan . "'><button class='ml-2 px-5 py-1 bg-black font-bold text-white rounded-full'>Edit</button></td>";
               }
             echo "</tr>";
           }
@@ -102,7 +94,22 @@
       </tbody>
     </table>
 
-    <a href="#">BOOKING</a>
+    <div class='hidden'>
+      <div class='fixed top-0 left-0 w-full h-screen bg-black opacity-50'>
+      </div>
+      <div class='flex justify-center items-center fixed bg-white rounded-3xl p-8 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
+        <a href="/" class='absolute top-3 right-5 font-extrabold' onclick=<?php $isPopup = false?>>X</a>
+        <div>
+          <h2 class='font-bold text-center mb-3'>Change Status:</h2>
+          <div>
+            <button class='px-5 py-1 bg-green-500 font-bold text-white rounded-full'>Accept</button>
+            <button class='px-5 py-1 bg-yellow-500 font-bold text-white rounded-full'>Pending</button>
+            <button class='px-5 py-1 bg-red-500 font-bold text-white rounded-full'>Reject</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </main>
 </body>
 </html>

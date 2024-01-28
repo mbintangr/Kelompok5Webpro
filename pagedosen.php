@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Page Dosen</title>
+  <title>Page Admin</title>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
   <style>
     body {
@@ -41,22 +41,28 @@
       border-radius: 10px;
     }
 
-    p{
-      font-size: 12px;
-    }
-
   </style>
 </head>
+
 <body>
+  <?php include_once('koneksi.php') ?>
   <header>
-    <h2><b><u>RUANG AA203</u></b></h2>
-    <p><b>Kapasitas: 30 orang</b></p>
+    <?php 
+      $nama_ruangan = strtoupper($_GET['ruangan']);
+      $sql = "SELECT kapasitas FROM ruangan WHERE nama_ruangan = '$nama_ruangan'";
+      $stmt = $conn->prepare($sql);
+      $stmt->execute();
+
+      $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+      $kapasitas_kelas = $result[0]['kapasitas'];
+    ?>
+    <h2 class='text-2xl font-bold'><b>RUANG <?php echo $nama_ruangan;?></b></h2>
+    <p>Kapasitas: <?php echo $kapasitas_kelas . ' orang';?></p>
   </header>
 
   <main>
     <table class="min-w-full">
-    <p1><b>JADWAL</b></p1>
-
+    <h1><b>JADWAL</b></h1>
       <thead>
         <tr>
           <th>Nama Dosen</th>
@@ -69,37 +75,31 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>Anggi</td>
-          <td>Pemrograman Web</td>
-          <td>3</td>
-          <td>TI B</td>
-          <td>08.00 - 10.00</td>
-          <td>Senin</td>
-          <td>Tersedia</td>
-        </tr>
-        <tr>
-          <td>Anita</td>
-          <td>Matematika Diskrit</td>
-          <td>1</td>
-          <td>TI A</td>
-          <td>13.00 - 15.00</td>
-          <td>Selasa</td>
-          <td>Tersedia</td>
-        </tr>
-        <tr>
-          <td>Irwati</td>
-          <td>Jaringan Komputer</td>
-          <td>2</td>
-          <td>TI A</td>
-          <td>10.00 - 12.00</td>
-          <td>Rabu</td>
-          <td>Tersedia</td>
-        </tr>
+        <?php 
+          $sql = "SELECT u.nama, mk.nama_mata_kuliah, mk.semester, pr.kelas, pr.waktu, pr.hari, pr.status FROM peminjaman_ruangan pr JOIN user u ON (pr.id_user = u.id) JOIN mata_kuliah mk ON (mk.id_user = u.id) WHERE id_ruangan = (SELECT id_ruangan FROM ruangan WHERE nama_ruangan = '$nama_ruangan')";
+          $stmt = $conn->prepare($sql);
+          $stmt->execute();
+        
+          $result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+          foreach ($stmt->fetchAll() as $key => $value) {
+            echo "<tr>";
+              echo "<td>" . $value['nama'] . "</td>";
+              echo "<td>" . $value['nama_mata_kuliah'] . "</td>";
+              echo "<td>" . $value['semester'] . "</td>";
+              echo "<td>" . $value['kelas'] . "</td>";
+              echo "<td>" . $value['waktu'] . "</td>";
+              echo "<td>" . $value['hari'] . "</td>";
+              if ($value['status'] == 'Accepted') {
+                echo "<td class='text-green-500 font-bold'>" . $value['status'] . "</td>";
+              } else if ($value['status'] == 'Pending') {
+                echo "<td class='text-yellow-500 font-bold'>" . $value['status'] . "</td>";
+              } else {
+                echo "<td class='text-red-500 font-bold'>" . $value['status'] . "</td>";
+              }
+            echo "</tr>";
+          }
+        ?>
       </tbody>
-    </table>
-    <a href="formbooking.php">BOOKING</a>
-        </tbody>
     </table>
   </main>
 </body>
