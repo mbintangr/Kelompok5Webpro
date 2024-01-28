@@ -48,8 +48,8 @@ $results = $statement->fetchAll(PDO::FETCH_ASSOC);
                     <h2 class="font-bold text-lg mb-2"><?php echo $result['nama_ruangan']; ?></h2>
                     <p class="text-sm text-gray-600">Jenis Ruangan: <?php echo $result['jenis_ruangan']; ?></p>
                     <p class="text-sm text-gray-600">Kapasitas: <?php echo $result['kapasitas']; ?></p>
-                    <button class="bg-blue-600 text-white font-bold px-4 py-1 rounded-md my-2 hover:bg-blue-700 transition duration-300">
-                        <a href="#" target="_blank">More</a>
+                    <button class="bg-green-500 text-white font-bold px-4 py-1 rounded-full my-2 hover:bg-green-700 transition duration-300">
+                        <a href="pagedosen.php?ruangan=<?php echo $result['nama_ruangan']; ?>" target="_self">More</a>
                     </button>
                 </div>
             <?php endforeach; ?>

@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo "Waktu Mulai: " . $waktuMulai . "<br>";
     echo "Waktu Selesai: " . $waktuSelesai . "<br>";
     echo "Hari: " . $hari . "<br>";
-} 
+}
 ?>
 
 <!DOCTYPE html>
@@ -25,8 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/form.css">
     <title>Form Pengisian Jadwal</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
 </head>
 
 <body class="bg-gray-200">
@@ -39,10 +39,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label for="nama" class="block text-sm font-medium text-gray-600">Nama Dosen:</label>
                     <input type="text" name="nama" id="nama" class="mt-1 p-2 w-full border rounded-md">
                 </div>
+
                 <div class="mb-4">
                     <label for="matkul" class="block text-sm font-medium text-gray-600">Mata Kuliah:</label>
                     <input type="text" name="matkul" id="matkul" class="mt-1 p-2 w-full border rounded-md">
                 </div>
+
                 <div class="mb-4">
                     <label for="smt" class="block text-sm font-medium text-gray-600">Semester:</label>
                     <select name="smt" id="smt" class="mt-1 p-2 w-full border rounded-md" onchange="updateKelasOptions()">
@@ -52,11 +54,18 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                         <option value="7">7</option>
                     </select>
                 </div>
+
                 <div class="mb-4">
                     <label for="kelas" class="block text-sm font-medium text-gray-600">Kelas:</label>
                     <select name="kelas" id="kelas" class="mt-1 p-2 w-full border rounded-md">
                     </select>
                 </div>
+
+                <div class="mb-4">
+                    <label for="hari" class="block text-sm font-medium text-gray-600">Tanggal:</label>
+                    <input type="date" name="tanggal" class="mt-1 p-2 w-full border rounded-md">
+                </div>
+
                 <div class="mb-4">
                     <label for="waktu_mulai" class="block text-sm font-medium text-gray-600">Jam Mulai:</label>
                     <input type="time" name="waktu_mulai" id="waktu_mulai" class="mt-1 p-2 w-full border rounded-md">
@@ -66,16 +75,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <label for="waktu_selesai" class="block text-sm font-medium text-gray-600">Jam Akhir:</label>
                     <input type="time" name="waktu_selesai" id="waktu_selesai" class="mt-1 p-2 w-full border rounded-md">
                 </div>
-                <div class="mb-4">
-                    <label for="hari" class="block text-sm font-medium text-gray-600">Hari:</label>
-                    <select type="text" name="hari" id="hari" class="mt-1 p-2 w-full border rounded-md">
-                        <option value="senin">Senin</option>
-                        <option value="selasa">Selasa</option>
-                        <option value="rabu">Rabu</option>
-                        <option value="kamis">Kamis</option>
-                        <option value="jumat">Jumat</option>
-                    </select>
-                </div>
+
                 <div class="mt-6">
                     <button type="submit" class="bg-blue-500 text-white p-2 rounded-md">Submit</button>
                 </div>
@@ -91,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </div>
 
     <script>
-        document.getElementById('dataForm').addEventListener('submit', function (e) {
+        document.getElementById('dataForm').addEventListener('submit', function(e) {
             e.preventDefault();
 
             var waktuMulai = document.getElementById('waktu_mulai').value;
@@ -124,7 +124,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 default:
                     options = [];
             }
-            options.forEach(function (option) {
+            options.forEach(function(option) {
                 var optionElement = document.createElement('option');
                 optionElement.value = option;
                 optionElement.text = option;
@@ -132,7 +132,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             });
         }
         updateKelasOptions();
-        document.getElementById('popup-close').addEventListener('click', function () {
+        document.getElementById('popup-close').addEventListener('click', function() {
             document.getElementById('popup').style.display = 'none';
         });
     </script>
