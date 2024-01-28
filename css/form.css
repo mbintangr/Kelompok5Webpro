@@ -4,7 +4,7 @@
 
 /* Gaya Tambahan */
 body {
-  background-color: #64ccc5;
+  background-color: #e6fff6;
 }
 
 .container {
@@ -17,7 +17,7 @@ body {
 .form-container {
   max-width: 400px;
   width: 100%;
-  background-color: #32be8f;
+  background-color: #38d39f;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);

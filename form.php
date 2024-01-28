@@ -102,7 +102,7 @@
                 </div>
 
                 <div class="mt-6">
-                    <button type="submit" class="bg-green-500 text-white px-5 py-1 rounded-full font-bold">Submit</button>
+                    <button type="submit" class="bg-green-600 hover:bg-green-700 transition duration-300 mt-6 text-white px-5 py-1 rounded-full font-bold">Submit</button>
                 </div>
 
             </form>
