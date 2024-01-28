@@ -40,19 +40,8 @@ $user = $statement->fetch(PDO::FETCH_ASSOC);
         </div>
         <p>Welcome, <?php echo $user['nama']; ?></p>
     </button>
-            <!-- Dropdown -->
-            <div class=" hidden my-[1000px] mx-[30px] text-base list-none bg-white divide-gray-100 rounded-lg shadow dark:bg-gray-700 absolute " id="language-dropdown-menu">
-                <ul class="py-2 font-medium" role="none" >
-                    <!-- Tambahkan opsi untuk Logout di sini -->
-                    <li >
-                        <a href="logout.php" class="block px-4 py-1 text-sm text-gray-700 hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-600 dark:hover:text-white" role="menuitem">
-                            <div class="inline-flex items-center">              
-                                Logout
-                            </div>
-                        </a>
-                    </li>
-                </ul>
-            </div>
+    <button type="button" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 mt-2 ml-8 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"><a href="logout.php">Logout</a></button>
+           
         </div>
     </div>
 </nav>
