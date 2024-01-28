@@ -24,7 +24,7 @@ if(isset($_POST["login"])){
             if ($user["level"] == 'ADMIN') {
                 header("location: admin.php");
             } else {
-                header("location: dosen.php");
+                header("location: listkelas.php");
             }
         } else {
             $message = '<label>Wrong Username or Password</label>';
