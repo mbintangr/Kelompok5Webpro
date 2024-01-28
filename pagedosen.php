@@ -1,3 +1,12 @@
+<?php
+session_start();
+include 'koneksi.php';
+$query = "SELECT * FROM user WHERE username = :username";
+$statement = $conn->prepare($query);
+$statement->execute(array('username' => $_SESSION["username"]));
+$user = $statement->fetch(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +16,8 @@
   <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
   <style>
     body {
-      margin: 2cm;
+      margin-left: 2cm;
+      margin-right: 2cm;
     }
 
     header{
@@ -30,23 +40,33 @@
       background-color: #f2f2f2;
     }
 
-    a {
-      display: inline-block ;
-      padding: 10px;
-      width: 120px;
-      background-color: #1B8AF2;
-      color: white;
-      text-decoration: none;
-      text-align: center;
-      border-radius: 10px;
-    }
 
   </style>
 </head>
 
 <body>
-  <?php include_once('koneksi.php') ?>
+
+  
   <header>
+  <nav class=" mb-10 bg-white border-gray-200 dark:bg-gray-900 relative ">
+    <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="index.php" class="flex items-center space-x-3 rtl:space-x-reverse">
+            <img src="img/pnjlogo.png" class="h-12" />
+            <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">POLITEKNIK NEGERI JAKARTA</span>
+        </a>
+        <div class="flex items-center md:order-2 space-x-1 md:space-x-0 rtl:space-x-reverse">
+        <button type="button" data-dropdown-toggle="language-dropdown-menu" onclick="toggleDropdown()" class="inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer hover:bg-gray-100 dark:hover:bg-gray-700 dark:hover:text-white dropdown-toggle">
+        <div class="w-12 h-12">
+        <img src="img/user.png"/>
+        </div>
+        <p>Welcome, <?php echo $user['nama']; ?></p>
+        </button>
+        <button type="button" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 mt-2 ml-8 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"><a href="logout.php">Logout</a></button>
+        </div>
+    </div>
+</nav>
+
+  
     <?php 
       $nama_ruangan = strtoupper($_GET['ruangan']);
       $sql = "SELECT kapasitas FROM ruangan WHERE nama_ruangan = '$nama_ruangan'";
