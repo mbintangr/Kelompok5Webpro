@@ -120,7 +120,7 @@ $user = $statement->fetch(PDO::FETCH_ASSOC);
         ?>
       </tbody>
     </table>
-    <a href="form.php?ruangan=<?php echo $nama_ruangan; ?>"><button class="font-bold px-5 py-1 rounded-full bg-green-600 hover:bg-green-700 transition duration-300 mt-6 text-white">Tambah</button></a>
+    <a href="form.php?ruangan=<?php echo $nama_ruangan; ?>" class="flex items-center justify-center"><button class="font-bold px-5 py-1 rounded-full bg-green-600 hover:bg-green-700 transition duration-300 text-white text-center">Tambah</button></a>
   </main>
 </body>
 
