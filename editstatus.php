@@ -48,7 +48,7 @@
     <div class='flex-col justify-center items-center fixed bg-white rounded-3xl p-8 top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2'>
       
       <div>
-        <h1 class='text-center font-bold text-xl'>Details:</h1>
+        <h1 class='text-center font-bold text-xl mb-3'>Details:</h1>
         <ul class="">
           <li>Nama Ruangan: <?= $nama_ruangan ?></li></li>
           <li>Tanggal: <?= $hari ?></li></li>
