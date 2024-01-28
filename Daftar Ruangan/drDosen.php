@@ -19,7 +19,7 @@
         <div class="grid grid-cols-3 gap-4">
             <button type="submit" class="container bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4  transition duration-300">
                 <div>click</div>
-                <div>AA 202</div>
+                <div>AA 201</div>
                 <div>Kapasitas 30</div>
             </button>
             <button type="submit" class="container bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4  transition duration-300">
@@ -29,23 +29,23 @@
             </button>
             <button type="submit" class="container bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4  transition duration-300">
                 <div>click</div>
-                <div>AA 202</div>
+                <div>AA 203</div>
                 <div>Kapasitas 30</div>
             </button>
             <!-- Baris kedua -->
             <button type="submit" class="container bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4  transition duration-300">
                 <div>click</div>
-                <div>AA 202</div>
+                <div>AA 301</div>
                 <div>Kapasitas 30</div>
             </button>
             <button type="submit" class="container bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4  transition duration-300">
                 <div>click</div>
-                <div>AA 202</div>
+                <div>AA 302</div>
                 <div>Kapasitas 30</div>
             </button>
             <button type="submit" class="container bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4  transition duration-300">
                 <div>click</div>
-                <div>AA 202</div>
+                <div>AA 303</div>
                 <div>Kapasitas 30</div>
             </button>
             <!-- Baris ketiga -->
