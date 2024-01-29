@@ -25,7 +25,11 @@
     $id = $result[0]['id_peminjaman'];
   }
 
-  $sql = "SELECT u.nama, mk.nama_mata_kuliah, mk.semester, pr.kelas, pr.waktu, pr.hari, pr.status FROM peminjaman_ruangan pr JOIN mata_kuliah mk ON (mk.id_user = pr.id_user) JOIN user u ON (u.id = pr.id_user) WHERE pr.id_ruangan = (SELECT id_ruangan FROM ruangan WHERE nama_ruangan = '$nama_ruangan') AND pr.id_peminjaman = '$id'";
+  $sql = "SELECT u.nama, mk.nama_mata_kuliah, mk.semester, pr.kelas, pr.waktu, pr.hari, pr.status 
+  FROM peminjaman_ruangan pr 
+        JOIN user u ON (pr.id_user = u.id)
+        JOIN mata_kuliah mk ON (mk.id_mata_kuliah = pr.id_mata_kuliah)
+        WHERE pr.id_ruangan = (SELECT id_ruangan FROM ruangan WHERE UPPER(nama_ruangan) = UPPER('$nama_ruangan')) AND pr.id_peminjaman = '$id'";
   $stmt = $conn->prepare($sql);
   $stmt->execute();
 
