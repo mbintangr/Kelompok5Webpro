@@ -30,7 +30,7 @@ $user = $statement->fetch(PDO::FETCH_ASSOC);
 
 <nav class="mb-10 bg-[#6096B4] relative">
   <div class=" max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
-    <a href="index.php" class="flex items-center space-x-3 rtl:space-x-reverse">
+    <a href="admin.php" class="flex items-center space-x-3 rtl:space-x-reverse">
       <img src="img/pnjlogo.png" class="w-16" />
       <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">POLITEKNIK NEGERI JAKARTA</span>
     </a>
