@@ -23,14 +23,19 @@
 
     $id_ruangan = $result['id_ruangan'];
 
-    $sql = "INSERT INTO peminjaman_ruangan (kelas, status, hari, waktu, id_user, id_ruangan) VALUES (:kelas, 'Pending', :tanggal, :waktu, :id_dosen, :id_ruangan)";
+    $sql = "SELECT id_mata_kuliah FROM mata_kuliah WHERE nama_mata_kuliah = '$nama_mata_kuliah'";
     $stmt = $conn->prepare($sql);
-    $stmt->bindParam(':kelas', $kelas, PDO::PARAM_STR);
-    $stmt->bindParam(':tanggal', $tanggal, PDO::PARAM_STR);
-    $stmt->bindParam(':waktu', $waktu, PDO::PARAM_STR);
-    $stmt->bindParam(':id_dosen', $id_dosen, PDO::PARAM_INT);
-    $stmt->bindParam(':id_ruangan', $id_ruangan, PDO::PARAM_INT);
     $stmt->execute();
+    $result = $stmt->fetch();
 
-    header("Location: pagedosen.php?ruangan=" . $nama_ruangan);
+    $id_mata_kuliah = $result['id_mata_kuliah'];
+
+    $sql = "INSERT INTO peminjaman_ruangan (kelas, status, hari, waktu, id_user, id_ruangan, id_mata_kuliah) VALUES ('$kelas', 'Pending', '$tanggal', '$waktu', '$id_dosen', '$id_ruangan', '$id_mata_kuliah')";
+    $stmt = $conn->prepare($sql);
+    if ($stmt->execute()) {
+        header("Location: pagedosen.php?ruangan=" . $nama_ruangan);
+    } else {
+        echo "ERROR";
+    }
+
 ?>

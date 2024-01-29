@@ -41,9 +41,9 @@
     $stmt = $conn->prepare($sql);
     $stmt->execute();
 
-    $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    $kapasitas_kelas = $result[0]['kapasitas'];
-    $jenis_ruangan = $result[0]['jenis_ruangan'];
+    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+    $kapasitas_kelas = $result['kapasitas'];
+    $jenis_ruangan = $result['jenis_ruangan'];
     ?>
     <h2 class='text-2xl font-bold'><b>RUANG <?php echo $nama_ruangan; ?></b></h2>
     <p>Jenis Ruangan: <?php echo $jenis_ruangan; ?></p>
@@ -51,8 +51,8 @@
   </header>
 
   <main>
+    <h1 class="mb-6 text-center text-xl"><b>JADWAL</b></h1>
     <table class="mb-5 mx-auto">
-      <h1 class="mb-6 text-center text-xl"><b>JADWAL</b></h1>
       <thead>
         <tr>
           <th>Nama Dosen</th>
@@ -66,7 +66,11 @@
       </thead>
       <tbody>
         <?php
-        $sql = "SELECT u.nama, mk.nama_mata_kuliah, mk.semester, pr.kelas, pr.waktu, pr.hari, pr.status FROM peminjaman_ruangan pr JOIN user u ON (pr.id_user = u.id) JOIN mata_kuliah mk ON (mk.id_user = u.id) WHERE id_ruangan = (SELECT id_ruangan FROM ruangan WHERE nama_ruangan = '$nama_ruangan')";
+        $sql = "SELECT u.nama, mk.nama_mata_kuliah, mk.semester, pr.kelas, pr.waktu, pr.hari, pr.status
+        FROM peminjaman_ruangan pr
+        JOIN user u ON (pr.id_user = u.id)
+        JOIN mata_kuliah mk ON (mk.id_mata_kuliah = pr.id_mata_kuliah)
+        WHERE id_ruangan = (SELECT id_ruangan FROM ruangan WHERE UPPER(nama_ruangan) = UPPER('$nama_ruangan'))";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
 

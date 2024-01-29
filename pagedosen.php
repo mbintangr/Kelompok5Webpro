@@ -92,7 +92,11 @@ $user = $statement->fetch(PDO::FETCH_ASSOC);
       </thead>
       <tbody>
         <?php
-        $sql = "SELECT u.nama, mk.nama_mata_kuliah, mk.semester, pr.kelas, pr.waktu, pr.hari, pr.status FROM peminjaman_ruangan pr JOIN user u ON (pr.id_user = u.id) JOIN mata_kuliah mk ON (mk.id_user = u.id) WHERE id_ruangan = (SELECT id_ruangan FROM ruangan WHERE nama_ruangan = '$nama_ruangan')";
+        $sql = "SELECT u.nama, mk.nama_mata_kuliah, mk.semester, pr.kelas, pr.waktu, pr.hari, pr.status
+        FROM peminjaman_ruangan pr
+        JOIN user u ON (pr.id_user = u.id)
+        JOIN mata_kuliah mk ON (mk.id_mata_kuliah = pr.id_mata_kuliah)
+        WHERE id_ruangan = (SELECT id_ruangan FROM ruangan WHERE UPPER(nama_ruangan) = UPPER('$nama_ruangan'))";
         $stmt = $conn->prepare($sql);
         $stmt->execute();
 
