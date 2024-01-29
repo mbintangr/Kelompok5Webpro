@@ -1,3 +1,13 @@
+<?php
+session_start();
+include 'koneksi.php';
+$query = "SELECT * FROM user WHERE username = :username";
+$statement = $conn->prepare($query);
+$statement->execute(array('username' => $_SESSION["username"]));
+$user = $statement->fetch(PDO::FETCH_ASSOC);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +15,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Page Admin</title>
-  <link rel="stylesheet" type="text/css" href="css/style.css">
+  <!-- <link rel="stylesheet" type="text/css" href="css/style.css"> -->
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
   <style>
 
@@ -33,6 +44,28 @@
 </head>
 
 <body>
+
+<header class="text-center">
+<nav class="mb-10 bg-[#6096B4] relative">
+  <div class=" max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <a href="index.php" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <img src="img/pnjlogo.png" class="w-16" />
+      <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">POLITEKNIK NEGERI JAKARTA</span>
+    </a>
+    <div class="flex items-center md:order-2 space-x-1 md:space-x-0 rtl:space-x-reverse">
+      <button type="button" data-dropdown-toggle="language-dropdown-menu" onclick="toggleDropdown()" class="inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer  dropdown-toggle">
+        <div class="w-12 h-12">
+          <img src="img/user.png" />
+        </div>
+        <p class="text-white">Welcome, <?php echo $user['nama']; ?></p>
+      </button>
+      <button type="button" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 mt-2 ml-8 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"><a href="logout.php">Logout</a></button>
+    </div>
+  </div>
+</nav>
+
+
+
   <?php include_once('koneksi.php') ?>
   <header class="text-center">
     <?php

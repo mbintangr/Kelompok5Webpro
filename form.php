@@ -1,3 +1,13 @@
+<?php
+session_start();
+include 'koneksi.php';
+$query = "SELECT * FROM user WHERE username = :username";
+$statement = $conn->prepare($query);
+$statement->execute(array('username' => $_SESSION["username"]));
+$user = $statement->fetch(PDO::FETCH_ASSOC);
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,20 +15,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Form Pengisian Jadwal</title>
-    <link rel="stylesheet" type="text/css" href="css/form.css">
+    <!-- <link rel="stylesheet" type="text/css" href="css/form.css"> -->
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
 </head>
 
-<body class="">
+<body class="bg-[#FFFBEB]">
+
+<nav class="bg-[#6096B4] relative">
+  <div class=" max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+    <a href="index.php" class="flex items-center space-x-3 rtl:space-x-reverse">
+      <img src="img/pnjlogo.png" class="w-16" />
+      <span class="self-center text-2xl font-semibold whitespace-nowrap text-white">POLITEKNIK NEGERI JAKARTA</span>
+    </a>
+    <div class="flex items-center md:order-2 space-x-1 md:space-x-0 rtl:space-x-reverse">
+      <button type="button" data-dropdown-toggle="language-dropdown-menu" onclick="toggleDropdown()" class="inline-flex items-center font-medium justify-center px-4 py-2 text-sm text-gray-900 dark:text-white rounded-lg cursor-pointer  dropdown-toggle">
+        <div class="w-12 h-12">
+          <img src="img/user.png" />
+        </div>
+        <p class="text-white">Welcome, <?php echo $user['nama']; ?></p>
+      </button>
+      <button type="button" class="text-white bg-red-700 hover:bg-red-800 focus:outline-none focus:ring-4 focus:ring-red-300 font-medium rounded-full text-sm px-5 py-2.5 mt-2 ml-8 text-center me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"><a href="logout.php">Logout</a></button>
+    </div>
+  </div>
+</nav>
+
     <?php 
         include_once('koneksi.php');
 
     ?>
-    <div class="container mx-auto mt-8">
+    <div>
+    <h2 class="text-2xl font-extrabold text-center mt-[40px] mb-[5px]">FORM PENGISIAN JADWAL</h2>
+    </div>
+
+
+    <div class="container mx-auto ">
+    
         <div class="form-container">
-            <div class="mb-6 text-center">
-                <h2 class="text-2xl font-extrabold">Form Pengisian Jadwal</h2>
-                <h3><?= $_GET['ruangan'] ?></h3>
+            <div class="mb-4 text-center">
+                <h3 class="text-xl font-extrabold">RUANGAN <?= $_GET['ruangan'] ?></h3>
+                
+            </div>
+            <div>
+            <br class="text-black w-3/4">
             </div>
             <form id="dataForm" action="processtambahdata.php?ruangan=<?= $_GET['ruangan'] ?>" method="post">
 
@@ -101,8 +140,8 @@
                     <input type="time" name="waktu_selesai" id="waktu_selesai" class="mt-1 p-2 w-full border rounded-md">
                 </div>
 
-                <div class="mt-6">
-                    <button type="submit" class="bg-green-600 hover:bg-green-700 transition duration-300 mt-6 text-white px-5 py-1 rounded-full font-bold">Submit</button>
+                <div class="mt-4 ml-[1435px]">
+                    <button type="submit" class="bg-[#19A7CE] hover:bg-green-700 transition duration-300 mt-6 text-white px-5 py-1 rounded-full font-bold">Submit</button>
                 </div>
 
             </form>
